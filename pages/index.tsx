@@ -35,6 +35,8 @@ function isGraphQLResultForquotesQueryName(response: any): response is GraphQLRe
 export default function Home() {
   const [numberOfQuotes, setNumberOfQuotes] = useState<Number | null>(0);
   const [openGenerator,setOpenGenerator]=useState(false);
+  const [processingQuote, setProcessingQuote] = useState(false);
+  const [quoteReceived, setQuoteReceived] = useState<String | null>(null);
   
   // Function to fetch our DynamoDB object (quotes generated)
   const updateQuoteInfo = async () => {
@@ -94,9 +96,10 @@ export default function Home() {
         <QuoteGeneratorModal
          open={openGenerator}
          close={handleCloseGenerator}
-         // processingQuote={processingQuote}
-         // quoteReceived={quoteReceived}
-         // setQuoteReceived={setQuoteReceived}
+         processingQuote={processingQuote}
+         setProcessingQuote={setProcessingQuote}
+         quoteReceived={quoteReceived}
+         setQuoteReceived={setQuoteReceived}
         />
 
         {/*Quote Generator*/}

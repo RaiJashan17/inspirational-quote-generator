@@ -2,13 +2,29 @@ import React from 'react'
 
 // Material UI Imports
 import { Backdrop, Modal, Fade } from '@mui/material'
+import { QuoteGeneratorModalCon, QuoteGeneratorModalInnerCon } from './QuoteGeneratorElement';
 
 interface QuoteGeneratorModalProps {
     open: boolean;
     close: () => void;
+    processingQuote: boolean;
+    setProcessingQuote: React.Dispatch<React.SetStateAction<boolean>>;
+    quoteReceived: String | null;
+    setQuoteReceived: React.Dispatch<React.SetStateAction<String | null>>;
 }
 
-const QuoteGeneratorModal = ({open, close}: QuoteGeneratorModalProps) => {
+const style = {
+
+};
+
+const QuoteGeneratorModal = ({
+    open, 
+    close,
+    processingQuote,
+    setProcessingQuote,
+    quoteReceived,
+    setQuoteReceived,
+}: QuoteGeneratorModalProps) => {
   return (
     <Modal
         id="quoteGeneratorModal"
@@ -24,7 +40,11 @@ const QuoteGeneratorModal = ({open, close}: QuoteGeneratorModalProps) => {
     
     >
         <Fade in={open}>
-            <h1>hello world</h1>
+            <QuoteGeneratorModalCon sx={style}>
+                <QuoteGeneratorModalInnerCon>
+
+                </QuoteGeneratorModalInnerCon>
+            </QuoteGeneratorModalCon>
         </Fade>
     </Modal>
   )
