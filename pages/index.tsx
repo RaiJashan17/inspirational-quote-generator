@@ -6,6 +6,7 @@ import styles from '@/styles/Home.module.css'
 
 // Components
 import {BackgroundImage1, BackgroundImage2, FooterCon, FooterLink, GenerateQuoteButton, GenerateQuoteButtonText, GradientBackgroundCon, QuoteGeneratorCon, QuoteGeneratorInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle, RedSpan } from '@/components/QuoteGenerator/QuoteGeneratorElement'
+import QuoteGeneratorModal from '@/components/QuoteGenerator'
 
 //Assests
 import Cloud1 from '@/assets/cloud-and-thunder.png'
@@ -33,6 +34,7 @@ function isGraphQLResultForquotesQueryName(response: any): response is GraphQLRe
 
 export default function Home() {
   const [numberOfQuotes, setNumberOfQuotes] = useState<Number | null>(0);
+  const [openGenerator,setOpenGenerator]=useState(false);
   
   // Function to fetch our DynamoDB object (quotes generated)
   const updateQuoteInfo = async () => {
@@ -67,6 +69,16 @@ export default function Home() {
   useEffect(() => {
     updateQuoteInfo();
   }, [])
+
+  // Functions for the quote generator modal
+  const handleCloseGenerator = () => {
+    setOpenGenerator(false);
+  }
+
+  const handleOpenGenerator = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    setOpenGenerator(true);
+  }
   
   return (
     <>
@@ -79,8 +91,13 @@ export default function Home() {
       {/*Background*/}
       <GradientBackgroundCon>
         {/*Quote Generator Modual Pop-Up*/}
-        {/*<QuoteGeneratorModal
-        />*/}
+        <QuoteGeneratorModal
+         open={openGenerator}
+         close={handleCloseGenerator}
+         // processingQuote={processingQuote}
+         // quoteReceived={quoteReceived}
+         // setQuoteReceived={setQuoteReceived}
+        />
 
         {/*Quote Generator*/}
         <QuoteGeneratorCon>
@@ -94,7 +111,8 @@ export default function Home() {
             </QuoteGeneratorSubTitle>
 
             <GenerateQuoteButton>
-              <GenerateQuoteButtonText onClick={null}>
+              <GenerateQuoteButtonText 
+              onClick={handleOpenGenerator}>
                 Make a Quote
               </GenerateQuoteButtonText>
 
