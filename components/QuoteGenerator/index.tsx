@@ -3,6 +3,9 @@ import React from 'react'
 // Material UI Imports
 import { Backdrop, Modal, Fade } from '@mui/material'
 import { ModalCircularProgress, QuoteGeneratorModalCon, QuoteGeneratorModalInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle } from './QuoteGeneratorElement';
+import ImageBlob from '../animations/ImageBlob';
+import { ImageBlobCon } from '../animations/AnimationElement';
+import AnimatedDownloadButton from '../animations/AnimatedDownloadButton';
 
 interface QuoteGeneratorModalProps {
     open: boolean;
@@ -46,7 +49,7 @@ const QuoteGeneratorModal = ({
                 <QuoteGeneratorModalCon sx={style}>
                     <QuoteGeneratorModalInnerCon>
                         {/* State #1: Processing request of quote + quote state is empty */}
-                        {/*processingQuote === true && quoteReceived === null) &&*/}
+                        {(processingQuote === true && quoteReceived === null) &&
                             <>
                                 <ModalCircularProgress
                                     size={"8rem"}
@@ -61,7 +64,25 @@ const QuoteGeneratorModal = ({
                                     <span style={{fontSize: 26}}>{wiseDevQuoteAuthor}</span>
                                 </QuoteGeneratorSubTitle>
                             </>
+                        }
                         {/* State #2: Quote state fulfilled */}
+                        {quoteReceived !== null &&
+                            <>
+                                <QuoteGeneratorTitle>
+                                    Download your quote!
+                                </QuoteGeneratorTitle>
+                                <QuoteGeneratorSubTitle style={{marginTop: "20px"}}>
+                                    See a preview:
+                                </QuoteGeneratorSubTitle>
+                                <ImageBlobCon>
+                                    <ImageBlob
+                                    
+                                    />
+                                </ImageBlobCon>
+                                <AnimatedDownloadButton
+                                />
+                            </>
+                        }
                     </QuoteGeneratorModalInnerCon>
                 </QuoteGeneratorModalCon>
             </Fade>
