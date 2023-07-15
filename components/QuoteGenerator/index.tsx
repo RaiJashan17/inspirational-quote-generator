@@ -2,7 +2,7 @@ import React from 'react'
 
 // Material UI Imports
 import { Backdrop, Modal, Fade } from '@mui/material'
-import { QuoteGeneratorModalCon, QuoteGeneratorModalInnerCon } from './QuoteGeneratorElement';
+import { ModalCircularProgress, QuoteGeneratorModalCon, QuoteGeneratorModalInnerCon, QuoteGeneratorSubTitle, QuoteGeneratorTitle } from './QuoteGeneratorElement';
 
 interface QuoteGeneratorModalProps {
     open: boolean;
@@ -25,28 +25,47 @@ const QuoteGeneratorModal = ({
     quoteReceived,
     setQuoteReceived,
 }: QuoteGeneratorModalProps) => {
-  return (
-    <Modal
-        id="quoteGeneratorModal"
-        aria-labelledby="spring-modal-quotegeneratormodal"
-        aria-describedby="spring-modal-opens-and-closes-quote-generator"
-        open={open}
-        onClose={close}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-            timeout: 500,
-        }}
     
-    >
-        <Fade in={open}>
-            <QuoteGeneratorModalCon sx={style}>
-                <QuoteGeneratorModalInnerCon>
-
-                </QuoteGeneratorModalInnerCon>
-            </QuoteGeneratorModalCon>
-        </Fade>
-    </Modal>
+    const wiseDevQuote = '"If you can enter a div, anything is possible"';
+    const wiseDevQuoteAuthor="-a wise senior software developer";
+    return (
+        <Modal
+            id="quoteGeneratorModal"
+            aria-labelledby="spring-modal-quotegeneratormodal"
+            aria-describedby="spring-modal-opens-and-closes-quote-generator"
+            open={open}
+            onClose={close}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+                timeout: 500,
+            }}
+        
+        >
+            <Fade in={open}>
+                <QuoteGeneratorModalCon sx={style}>
+                    <QuoteGeneratorModalInnerCon>
+                        {/* State #1: Processing request of quote + quote state is empty */}
+                        {/*processingQuote === true && quoteReceived === null) &&*/}
+                            <>
+                                <ModalCircularProgress
+                                    size={"8rem"}
+                                    thickness={2.5}
+                                />
+                                <QuoteGeneratorTitle>
+                                    Creating your quote...
+                                </QuoteGeneratorTitle>
+                                <QuoteGeneratorSubTitle style= {{marginTop: "20 px"}}>
+                                    {wiseDevQuote}
+                                    <br></br>
+                                    <span style={{fontSize: 26}}>{wiseDevQuoteAuthor}</span>
+                                </QuoteGeneratorSubTitle>
+                            </>
+                        {/* State #2: Quote state fulfilled */}
+                    </QuoteGeneratorModalInnerCon>
+                </QuoteGeneratorModalCon>
+            </Fade>
+        </Modal>
   )
 }
 
