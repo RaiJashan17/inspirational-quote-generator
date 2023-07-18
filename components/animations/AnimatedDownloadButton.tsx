@@ -4,11 +4,14 @@ import Image from 'next/image'
 import lottieJson from '../../assets/animatedphoto.json'
 import { CenteredLottie, DownloadQuoteCardCon, DownloadQuoteCardConText } from './AnimationElement';
 
+interface AnimatedDownloadButtonProps{
+    handleDownload: () => void;
+}
 
-const AnimatedDownloadButton = () => {
+const AnimatedDownloadButton = ({handleDownload}: AnimatedDownloadButtonProps) => {
   return (
     <DownloadQuoteCardCon 
-        //onClick={handleDownload}
+        onClick={handleDownload}
     >
         <CenteredLottie
             loop

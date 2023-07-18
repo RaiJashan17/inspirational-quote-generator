@@ -181,7 +181,7 @@ export const QuoteGeneratorModalCon = styled(Box)`
 `;
 
 export const QuoteGeneratorModalInnerCon = styled.div`
-  top: 0%;
+  top: 5%;
   left: 0%;
   transform: (-50%,-50%);
   position: relative;
