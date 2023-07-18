@@ -31,6 +31,9 @@ const QuoteGeneratorModal = ({
     
     const wiseDevQuote = '"If you can enter a div, anything is possible"';
     const wiseDevQuoteAuthor="-a wise senior software developer";
+
+    //const [blobUrl, setBlobUrl]= useState<string | null></string>
+
     return (
         <Modal
             id="quoteGeneratorModal"
@@ -76,7 +79,8 @@ const QuoteGeneratorModal = ({
                                 </QuoteGeneratorSubTitle>
                                 <ImageBlobCon>
                                     <ImageBlob
-                                    
+                                        //quoteReceived={quoteReceived}
+                                        //blobUrl={blobUrl}
                                     />
                                 </ImageBlobCon>
                                 <AnimatedDownloadButton

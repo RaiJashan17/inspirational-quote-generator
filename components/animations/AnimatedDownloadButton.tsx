@@ -1,9 +1,24 @@
 import React from 'react'
 import Image from 'next/image'
 
+import lottieJson from '../../assets/animatedphoto.json'
+import { CenteredLottie, DownloadQuoteCardCon, DownloadQuoteCardConText } from './AnimationElement';
+
+
 const AnimatedDownloadButton = () => {
   return (
-    <div>AnimatedDownloadButton</div>
+    <DownloadQuoteCardCon 
+        //onClick={handleDownload}
+    >
+        <CenteredLottie
+            loop
+            animationData={lottieJson}
+            play
+        />
+        <DownloadQuoteCardConText>
+            Download your quote card
+        </DownloadQuoteCardConText>
+    </DownloadQuoteCardCon>
   )
 }
 
