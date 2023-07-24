@@ -132,6 +132,7 @@ exports.handler = async (event) => {
           const SelectedBackgroundImage=backgroundImages[randomIndex];
           
           const timestamp=new Date().toLocaleString().replace(/[^\d]/g, "");
+          const svgBuffer = Buffer.from(svgImage);
           
           const imagePath = path.join('/tmp', 'quote-card.png');
           const image = await sharp(SelectedBackgroundImage)
@@ -162,5 +163,5 @@ exports.handler = async (event) => {
     isBase64Encoded: true,
     };
     }
-    return await getRandomQuote(apiURL);
+    return await getRandomQuote(apiURL); 
 };
