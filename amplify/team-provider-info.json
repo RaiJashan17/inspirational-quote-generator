@@ -18,11 +18,17 @@
       "function": {
         "inspoquoteLambda": {
           "deploymentBucketName": "amplify-inspirationalquotes-dev-185051-deployment",
-          "s3Key": "amplify-builds/inspoquoteLambda-4655592b6c6a41796b37-build.zip"
+          "s3Key": "amplify-builds/inspoquoteLambda-676149572f7077785430-build.zip"
         }
       },
       "api": {
         "inspirationalquotes": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d1tsvedl30u9w1",
+          "type": "cicd"
+        }
       }
     }
   }
