@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Lottie from 'react-lottie-player'
 
+
 export const ImageBlobCon = styled.div`
       position: relative;
     text-align: center;
@@ -56,7 +57,7 @@ export const DownloadQuoteCardCon = styled.div`
   
 `;
 
-export const CenteredLottie = styled(Lottie)`
+export const CenteredLottie = styled(Lottie)<{ animationData: any }>`
     width: 250px;
     height: 250px;
     left: 50%;
