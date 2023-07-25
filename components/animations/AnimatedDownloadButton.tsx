@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import lottieJson from '../../assets/animatedphoto.json'
 import { CenteredLottie, DownloadQuoteCardCon, DownloadQuoteCardConText } from './AnimationElement';
+import Lottie from 'react-lottie-player';
 
 interface AnimatedDownloadButtonProps{
     handleDownload: () => void;
@@ -15,7 +16,7 @@ const AnimatedDownloadButton = ({handleDownload}: AnimatedDownloadButtonProps) =
     >
         <CenteredLottie
             loop
-            animationData={lottieJson as any}
+            animationData={lottieJson}
             play
         />
         <DownloadQuoteCardConText>
