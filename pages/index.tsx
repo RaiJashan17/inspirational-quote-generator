@@ -178,7 +178,7 @@ export default function Home() {
         {/*Footer*/}
         <FooterCon>
             <>
-              {/*Quotes Generated: {numberOfQuotes}*/}
+              Quotes Generated: {numberOfQuotes}
               <br />
               Developed with <RedSpan>❤️</RedSpan> by <FooterLink href="https://www.linkedin.com/in/raijashan17/" target="_blank" rel="no opener
               noreferrer">@raijashan17</FooterLink>
