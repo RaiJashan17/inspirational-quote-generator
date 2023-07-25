@@ -15,7 +15,7 @@ const AnimatedDownloadButton = ({handleDownload}: AnimatedDownloadButtonProps) =
     >
         <CenteredLottie
             loop
-            animationData={lottieJson}
+            animationData={lottieJson as any}
             play
         />
         <DownloadQuoteCardConText>
